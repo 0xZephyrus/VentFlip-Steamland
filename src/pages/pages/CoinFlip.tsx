@@ -27,19 +27,19 @@ const CoinFlip: React.FC = () => {
             <CoinFlipComponent />
           </div>
           <div className="row-start- md:col-start-3 md:row-start-1">
-            <HistoryItem />
+            {/* <HistoryItem /> */}
           </div>
           <div className="">
             <CustomBackground changeBackground={changeBackground} />
           </div>
           <div className="row-start-2 md:col-start-2">
-            <BalanceFlip
-            // userFunds={userFunds}
-            // balance={balance}
-            // userLoading={userLoading}
-            // isClaiming={isClaiming}
-            // handleClaim={handleClaim}
-            />
+            {/* <BalanceFlip
+            userFunds={userFunds}
+            balance={balance}
+            userLoading={userLoading}
+            isClaiming={isClaiming}
+            handleClaim={handleClaim}
+            /> */}
           </div>
           <div className=" col-start-1 md:col-start-3">
             <OfficialLink />
