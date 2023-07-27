@@ -11,7 +11,7 @@ export default function Coin(props: {
     <>
       {isHead ? (
         <img
-          src="/img/head.png"
+          src="/coin/heads.png"
           alt=""
           className={`coin ${className ? className : ""} ${
             result ? "normal" : "lost"
@@ -19,7 +19,7 @@ export default function Coin(props: {
         />
       ) : (
         <img
-          src="/img/tail.png"
+          src="/coin/heads.png"
           alt=""
           className={`coin ${className ? className : ""} ${
             result ? "" : "lost"

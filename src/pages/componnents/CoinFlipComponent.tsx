@@ -243,7 +243,7 @@ export default function CoinFlipComponent() {
   }, [wallet.connected, wallet.publicKey]);
 
   return (
-    <div className="w-[600px] h-auto md:w-[360px] md:h-[600px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
+    <div className="w-[360px] h-[600px] md:w-[360px] md:h-[600px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
       {isEnd && (
         <div className="win-effect">
           {isWon && <ReactConfetti width={2000} height={2000} />}
@@ -290,7 +290,7 @@ export default function CoinFlipComponent() {
               />
             </>
           ) : (
-            <div className="text-center justify-center items-center">
+            <>
               {isDepositing && !isFlipping && (
                 <LoadingText
                   text="waiting for deposit..."
@@ -306,7 +306,7 @@ export default function CoinFlipComponent() {
                 <span className="text-purple-500">FOR</span>{" "}
                 <span className="text-yellow-500">{amount}</span> SOL
               </h4>
-            </div>
+            </>
           )}
         </div>
       ) : (

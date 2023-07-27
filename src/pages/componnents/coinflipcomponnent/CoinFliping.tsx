@@ -24,9 +24,9 @@ export default function CoinFlipping(props: { heads: boolean; end?: boolean }) {
   return (
     <div className="coin-flipping" style={{ animation: coinAnimation }}>
       {/* eslint-disable-next-line */}
-      <img src="/img/head.png" alt="heads" className="side-heads" />
+      <img src="/coin/heads.png" alt="heads" className="side-heads" />
       {/* eslint-disable-next-line */}
-      <img src="/img/tail.png" alt="tails" className="side-tails" />
+      <img src="/coin/heads.png" alt="tails" className="side-tails" />
     </div>
   );
 }

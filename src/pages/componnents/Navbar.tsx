@@ -14,7 +14,7 @@ export default function Navbar() {
         <a href="https://steamland.xyz" rel="noreferrer">
           <div className="logo">
             {/* eslint-disable-next-line */}
-            <img src="/coin/head.png" alt="" />
+
             <p>
               {"{STEAMLAND}"}
               <span>COIN</span>
