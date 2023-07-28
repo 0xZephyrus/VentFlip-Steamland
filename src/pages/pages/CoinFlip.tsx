@@ -7,8 +7,9 @@ import Leaderboard from "../componnents/Leaderboard";
 import useBackgroundImage from "@/hooks/useBackgroundImage";
 import HistoryItem from "../componnents/HistoryItem";
 import BalanceFlip from "../componnents/BalanceFlip";
+import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
 
-const CoinFlipping: React.FC = () => {
+const CoinFlip: React.FC = () => {
   const { backgroundImage, changeBackground } = useBackgroundImage(
     "/background/FlayingCity.png"
   );
@@ -27,19 +28,13 @@ const CoinFlipping: React.FC = () => {
             <CoinFlipComponent />
           </div>
           <div className="row-start- md:col-start-3 md:row-start-1">
-            <HistoryItem />
+            {/* <HistoryItem /> */}
           </div>
           <div className="">
             <CustomBackground changeBackground={changeBackground} />
           </div>
           <div className="row-start-2 md:col-start-2">
-            <BalanceFlip
-            // userFunds={userFunds}
-            // balance={balance}
-            // userLoading={userLoading}
-            // isClaiming={isClaiming}
-            // handleClaim={handleClaim}
-            />
+            <BalanceFlip />
           </div>
           <div className=" col-start-1 md:col-start-3">
             <OfficialLink />
@@ -50,4 +45,4 @@ const CoinFlipping: React.FC = () => {
   );
 };
 
-export default CoinFlipping;
+export default CoinFlip;
