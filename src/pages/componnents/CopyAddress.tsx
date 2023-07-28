@@ -1,6 +1,6 @@
 import copy from "copy-to-clipboard";
 import { useState } from "react";
-import { PastIcon } from "./svgIcons";
+import { PastIcon } from "../../utils/component/svgIcons";
 
 export default function CopyAddress(props: { address: string }) {
   const { address } = props;
@@ -15,7 +15,7 @@ export default function CopyAddress(props: { address: string }) {
 
   return (
     <div className="winner-address" onClick={() => handleCopy(address)}>
-      {address.slice(0, 10)}...{address.slice(-10)}
+      {address?.slice(0, 10)}...{address?.slice(-10)}
       <span className="copy-icon">
         {!isCopied ? <PastIcon /> : <span className="copied">copied!</span>}
       </span>

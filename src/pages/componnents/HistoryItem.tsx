@@ -1,7 +1,7 @@
 import moment from "moment";
 import { useState, useEffect } from "react";
 import { solConnection } from "../../contexts/utils";
-import { SolGrayIcon, SolIcon, SolSvgIcon } from "./svgIcons";
+import { SolGrayIcon, SolIcon, SolSvgIcon } from "../../utils/component/svgIcons";
 
 export default function HistoryItem(props: {
   signature: string;

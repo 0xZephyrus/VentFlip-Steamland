@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { HistoryItem as HistoryItemType, PROGRAM_ID } from "../contexts/type";
-import { errorAlert } from "../pages/componnents/toastGroup";
 import {
   getNetworkFromConnection,
   getSolbalance,
@@ -20,6 +19,7 @@ import {
   getUserPoolState,
   playGame,
 } from "../contexts/transactions";
+import { errorAlert } from "@/utils/component/toastGroup";
 
 export function useCoinFlipGame() {
   const wallet = useWallet();

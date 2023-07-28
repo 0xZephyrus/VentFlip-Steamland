@@ -10,7 +10,6 @@ import {
   Transaction,
   TransactionError,
 } from "@solana/web3.js";
-import { errorAlert, successAlert } from "../pages/componnents/toastGroup";
 import { IDL as GameIDL } from "../idl/coinflip";
 import {
   GlobalPool,
@@ -29,6 +28,7 @@ import {
   postWithdrawToDiscordAPI,
   solConnection,
 } from "./utils";
+import { errorAlert, successAlert } from "@/utils/component/toastGroup";
 
 export const initializeUserPool = async (wallet: WalletContextState) => {
   const cloneWindow: any = window;
