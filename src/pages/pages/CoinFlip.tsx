@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import CoinFlipComponent from "../componnents/CoinFlipComponent";
 import CustomBackground from "../componnents/CustomBackground";
@@ -8,11 +8,48 @@ import useBackgroundImage from "@/hooks/useBackgroundImage";
 import HistoryItem from "../componnents/HistoryItem";
 import BalanceFlip from "../componnents/BalanceFlip";
 import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
+import History from "../componnents/History";
+import { getAllTransactions, getUserPoolState } from "@/contexts/transactions";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
+import { HistoryData, PROGRAM_ID } from "@/contexts/type";
 
 const CoinFlip: React.FC = () => {
+  const [history, setHistory] = useState([]);
   const { backgroundImage, changeBackground } = useBackgroundImage(
     "/background/FlayingCity.png"
   );
+
+  const wallet = useWallet();
+  const {
+    handlePlay,
+    isEnd,
+    setAmount,
+    setIsBet,
+    solBalance,
+    betLoading,
+    isBet,
+    amount,
+    userLoading,
+    isWon,
+    isProgress,
+    isFlipping,
+    isDepositing,
+    claimLoading,
+    userFunds,
+    handlePlayAgain,
+    handleClaim, 
+  } = useCoinFlipGame();
+
+  const getHistory = useCallback(async () => {
+    const allTx: HistoryData[] = await getAllTransactions(new PublicKey(PROGRAM_ID));
+    setHistory(allTx);
+  }, []);
+
+
+  useEffect(() => {
+    getHistory();
+  }, [solBalance, wallet.connected]);
 
   return (
     <div
@@ -25,16 +62,32 @@ const CoinFlip: React.FC = () => {
             <Leaderboard />
           </div>
           <div className="row-start-1 md:col-start-2">
-            <CoinFlipComponent />
+            <CoinFlipComponent 
+                handlePlay={handlePlay}
+                isEnd={isEnd}
+                setAmount={setAmount}
+                setIsBet={setIsBet}
+                solBalance={solBalance}
+                betLoading={betLoading}
+                isBet={isBet}
+                amount={amount}
+                userLoading={userLoading}
+                isWon={isWon}
+                isProgress={isProgress}
+                isFlipping={isFlipping}
+                isDepositing={isDepositing}
+                handlePlayAgain={handlePlayAgain}
+              />
           </div>
           <div className="row-start- md:col-start-3 md:row-start-1">
             {/* <HistoryItem /> */}
+            <History history={history} />
           </div>
           <div className="">
             <CustomBackground changeBackground={changeBackground} />
           </div>
           <div className="row-start-2 md:col-start-2">
-            <BalanceFlip />
+            <BalanceFlip userFunds={userFunds} claimLoading={claimLoading} handleClaim={handleClaim} userLoading={userLoading} />
           </div>
           <div className=" col-start-1 md:col-start-3">
             <OfficialLink />

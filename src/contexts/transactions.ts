@@ -20,6 +20,7 @@ import {
   PLAYER_POOL_SIZE,
   PROGRAM_ID,
   VAULT_AUTHORITY_SEED,
+  HistoryData,
 } from "./type";
 import {
   filterError,
@@ -533,7 +534,7 @@ export const getBankBalanceSOL = async () => {
 };
 
 // Get Signatures related with Program Pubkey
-export const getAllTransactions = async (programId: PublicKey) => {
+export const getAllTransactions = async (programId: PublicKey): Promise<any[]> => {
   const data = await solConnection.getSignaturesForAddress(
     programId,
     { limit: 15 },
@@ -618,9 +619,9 @@ export const getDataFromSignature = async (sig: string) => {
   let signer = accountKeys[0].toBase58();
 
   let bytes = bs58.decode(hash);
-  let a = bytes.slice(10, 18).reverse();
+  let a = bytes.slice(8, 16).reverse();
   let type = new anchor.BN(a).toNumber();
-  let b = bytes.slice(18, 26).reverse();
+  let b = bytes.slice(16, 24).reverse();
   let sol_price = new anchor.BN(b).toNumber();
 
   let state = type === ts % 2 ? 1 : 0;

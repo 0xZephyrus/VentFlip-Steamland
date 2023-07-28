@@ -33,6 +33,15 @@ export interface PlayerPool {
   claimableReward: anchor.BN; // 8
 }
 
+export interface HistoryData {
+  signature: string;
+  address: string;
+  bet_amount: number;
+  type: boolean;
+  block_timestamp: number;
+  win: boolean;
+}
+
 export const PLAYER_POOL_SIZE = 112;
 export const LAMPORTS = 1000000000;
 export const GLOBAL_AUTHORITY_SEED = "global-authority";
@@ -49,7 +58,7 @@ export const RPC_CURRENT = RPC_TESTNET;
 
 export const PROGRAM_ID = GameIDLJson.metadata.address;
 
-export const NONCE = "29L53hyG";
+export const NONCE = "4QUPibxi";
 
 export const DISCORD_COINFLIP_NORMAL_CHANNELID = "1034779571637198858";
 export const DISCORD_COINFLIP_ADMIN_CHANNELID = "1034452457599807528";

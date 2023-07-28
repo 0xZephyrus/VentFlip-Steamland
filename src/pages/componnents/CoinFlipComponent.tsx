@@ -13,113 +13,112 @@ import CoinFlipping from "./coinflipcomponnent/CoinFliping";
 import ReactConfetti from "react-confetti";
 import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
 
-export default function CoinFlipComponent() {
-  const {
-    isEnd,
-    setAmount,
-    setIsBet,
-    solBalance,
-    handlePlay,
-    betLoading,
-    isBet,
-    amount,
-    userLoading,
-    isWon,
-    isProgress,
-    isFlipping,
-    isDepositing,
-    handlePlayAgain,
-  } = useCoinFlipGame();
+export default function CoinFlipComponent( props: {
+  handlePlay: () => void,
+  isEnd: boolean,
+  setAmount: (amount: number) => void,
+  setIsBet: (isBet: boolean) => void,
+  solBalance: number,
+  betLoading: boolean,
+  isBet: boolean,
+  amount: number,
+  userLoading: boolean,
+  isWon: boolean
+  isProgress: boolean,
+  isFlipping: boolean,
+  isDepositing: boolean,
+  handlePlayAgain: () => void,
+}) {
 
   return (
     <div className="w-[360px] h-[600px] md:w-[360px] md:h-[600px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
-      {isEnd && (
+      {props.isEnd && (
         <div className="win-effect">
-          {isWon && <ReactConfetti className="h-screen w-full" />}
+          {props.isWon && <ReactConfetti className="h-screen w-full" />}
         </div>
       )}
-      {isProgress ? (
+      {props.isProgress ? (
         <div className="flip-box-progress">
-          {isFlipping ? (
-            <CoinFlipping heads={isBet} />
+          {props.isFlipping ? (
+            <CoinFlipping heads={props.isBet} />
           ) : (
             <>
-              {isEnd ? (
+              {props.isEnd ? (
                 <Coin
-                  isHead={isWon === isBet}
-                  result={isWon || !isProgress}
+                  isHead={props.isWon === props.isBet}
+                  result={props.isWon || !props.isProgress}
                   className="coin-animation"
                 />
               ) : (
-                <Coin isHead={isBet} className="coin-animation" />
+                <Coin isHead={props.isBet} className="coin-animation" />
               )}
             </>
           )}
-          {isEnd ? (
+          {props.isEnd ? (
             <>
-              {isWon ? (
+              {props.isWon ? (
                 <>
                   <p className="result-text text-green-500">YOU WON</p>
                   <p className="result-value text-green-500">
-                    {amount * 2} SOL
+                    {props.amount * 2} SOL
                   </p>
                 </>
               ) : (
                 <>
                   <p className="result-text text-red-500">YOU LOST</p>
-                  <p className="result-value text-red-500">{amount} SOL</p>
+                  <p className="result-value text-red-500">{props.amount} SOL</p>
                 </>
               )}
 
               <ProgressBar
-                isEnd={isEnd}
-                isFetched={!userLoading}
-                handlePlayAgain={handlePlayAgain}
-                isWon={isWon}
+                isEnd={props.isEnd}
+                isFetched={!props.userLoading}
+                handlePlayAgain={props.handlePlayAgain}
+                isWon={props.isWon}
               />
             </>
           ) : (
             <>
-              {isDepositing && !isFlipping && (
+              {props.isDepositing && !props.isFlipping && (
                 <LoadingText
                   text="waiting for deposit..."
                   className="waiting"
                 />
               )}
-              {isFlipping && (
+              {props.isFlipping && (
                 <LoadingText text="Flipping..." className="waiting" />
               )}
 
               <h4>
-                {isBet ? "HEADS" : "TAILS"}{" "}
+                {props.isBet ? "HEADS" : "TAILS"}{" "}
                 <span className="text-purple-500">FOR</span>{" "}
-                <span className="text-yellow-500">{amount}</span> SOL
+                <span className="text-yellow-500">{props.amount}</span> SOL
               </h4>
             </>
           )}
         </div>
       ) : (
         <>
-          <CoinImages isBet={isBet} />
+          <CoinImages isBet={props.isBet} />
           <h1 className="text-2xl font-bold mb-6 text-center text-[#7C612E]">
             VENT FLIP
           </h1>
 
           <h1 className="text-center text-2xl font-bold text-[#7C612E]">
-            Balance: {solBalance} SOL
+            Balance: {props.solBalance} SOL
           </h1>
-          <CoinSelection isBet={isBet} setIsBet={setIsBet} />
+          <CoinSelection isBet={props.isBet} setIsBet={props.setIsBet} />
           <CoinBet
-            amount={amount}
-            setAmount={setAmount}
-            solBalance={solBalance}
+            amount={props.amount}
+            setAmount={props.setAmount}
+            solBalance={props.solBalance}
           />
           <CoinFlipButton
-            betLoading={betLoading}
-            userLoading={userLoading}
-            solBalance={solBalance}
-            amount={amount}
-            handlePlay={handlePlay}
+            betLoading={props.betLoading}
+            userLoading={props.userLoading}
+            solBalance={props.solBalance}
+            amount={props.amount}
+            handlePlay={props.handlePlay}
           />
         </>
       )}

@@ -154,7 +154,8 @@ export function useCoinFlipGame() {
         setSetValue(result.gameData.amount.toNumber() / LAMPORTS_PER_SOL);
       }
 
-      getGlobalData();
+      // getGlobalData();
+      updatePage();
     } catch (error) {
       setIsEnd(false);
       setIsWon(false);
@@ -250,7 +251,7 @@ export function useCoinFlipGame() {
     isDepositing,
     handlePlayAgain,
     txLoading,
-    LAMPORTS_PER_SOL,
+    LAMPORTS_PER_SOL
     // Add other state variables and functions as needed
   };
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import { useWallet } from "@solana/wallet-adapter-react";
+import React, { useEffect, useState } from "react";
 
 type CoinBetProps = {
   amount: number;
@@ -8,6 +9,7 @@ type CoinBetProps = {
 
 const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
   // Array of buttons with their values and labels
+  const [disabled, setDisabled] = useState(true);
   const buttonData = [
     { value: 0.05, label: "0.05 SOL" },
     { value: 0.1, label: "0.1 SOL" },
@@ -16,6 +18,12 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
     { value: 1, label: "1 SOL" },
     { value: 2, label: "2 SOL" },
   ];
+
+  let { connected } = useWallet();
+  
+  useEffect(() => {
+    setDisabled(!connected);
+  }, [connected]);
 
   return (
     <div className="mb-5">
@@ -33,13 +41,13 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
                   : "bg-[#7c612e] text-white"
               } 
               ${
-                solBalance <= button.value
+                disabled || solBalance <= button.value
                   ? " brightness-50 cursor-not-allowed"
                   : ""
               }
             `}
             // Disable the button if the solBalance is insufficient
-            disabled={solBalance <= button.value}
+            disabled={disabled || solBalance <= button.value}
             // Call setAmount function with the button value when clicked
             onClick={() => setAmount(button.value)}
           >
