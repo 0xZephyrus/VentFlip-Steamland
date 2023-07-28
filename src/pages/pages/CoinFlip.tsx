@@ -42,7 +42,7 @@ const CoinFlip: React.FC = () => {
   } = useCoinFlipGame();
 
   const getHistory = useCallback(async () => {
-    const allTx: HistoryData[] = await getAllTransactions(new PublicKey(PROGRAM_ID));
+    const allTx: any = await getAllTransactions(new PublicKey(PROGRAM_ID));
     setHistory(allTx);
   }, []);
 
