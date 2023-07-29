@@ -11,17 +11,17 @@ export default function Coin(props: {
     <>
       {isHead ? (
         <img
-          src="/coin/heads.png"
+          src="/ventflip/congrats.png"
           alt=""
-          className={`coin ${className ? className : ""} ${
+          className={`mb-10 mt-10  ${className ? className : ""} ${
             result ? "normal" : "lost"
           }`}
         />
       ) : (
         <img
-          src="/coin/heads.png"
+          src="/ventflip/Oops.png"
           alt=""
-          className={`coin ${className ? className : ""} ${
+          className={`mb-10 mt-10 ${className ? className : ""} ${
             result ? "" : "lost"
           }`}
         />

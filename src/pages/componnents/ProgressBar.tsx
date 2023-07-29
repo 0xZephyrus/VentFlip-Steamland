@@ -59,7 +59,9 @@ export default function ProgressBar(props: {
           </p>
         )}
         <button
-          className={`to-bet button bg-red-500 white ${!end ? "loading" : ""}`}
+          className={` bg-[#7c612e]  hover:bg-[#f3ce49]  w-[200px] h-[50px] hover:scale-105 rounded-2xl mt-4 font-bold text-sm md:text-xl text-[#ffffff] ${
+            !end ? "loading" : ""
+          }`}
           style={{ marginTop: 30, marginRight: "auto", marginLeft: "auto" }}
           disabled={!end}
           onClick={() => handlePlayAgain()}

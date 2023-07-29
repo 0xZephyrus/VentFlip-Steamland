@@ -36,9 +36,9 @@ export default function HistoryItem(props: HistoryItemProps) {
   }, [betTime]);
 
   return (
-    <div className="w-full max-h-100 overflow-y-auto text-center">
+    <div className="w-full h-[45px] text-center">
       <div
-        className={`flex flex-row transition-all duration-200 ${
+        className={`flex flex-row  transition-all duration-200 ${
           win ? "bg-[#3E4347]" : "bg-[#5E5E5F]"
         }`}
       >
@@ -49,10 +49,10 @@ export default function HistoryItem(props: HistoryItemProps) {
           {type ? "HEADS" : "TAILS"}
         </div>
         <div className="flex-1 py-1 text-sm font-semibold text-white">
-          {win ? "Win" : "Lost"}
+          {win ? "WIN" : "LOST"}
         </div>
         {!timeLoading && blockTime !== null && (
-          <div className="flex-1 py-1 text-sm font-semibold text-white">
+          <div className="flex-1 text-sm font-semibold text-white">
             {moment(betTime * 1000).from(moment(blockTime))}
           </div>
         )}

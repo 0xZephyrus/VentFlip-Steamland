@@ -1,32 +1,11 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function CoinFlipping(props: { heads: boolean; end?: boolean }) {
-  const [coinAnimation, setCoinAnimation] = useState("");
-  const handleFlip = () => {
-    setTimeout(function timer() {
-      setCoinAnimation("none");
-      if (props.heads) {
-        setTimeout(function () {
-          setCoinAnimation("spin-head 0.2s infinite");
-        }, 100);
-      } else {
-        setTimeout(function () {
-          setCoinAnimation("spin-tail 0.2s infinite");
-        }, 100);
-      }
-    }, 100);
-  };
-  useEffect(() => {
-    handleFlip();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.heads, props.end]);
-
+export default function CoinFlipping() {
   return (
-    <div className="coin-flipping" style={{ animation: coinAnimation }}>
+    <div className="  box-content ">
       {/* eslint-disable-next-line */}
-      <img src="/coin/heads.png" alt="heads" className="side-heads" />
-      {/* eslint-disable-next-line */}
-      <img src="/coin/heads.png" alt="tails" className="side-tails" />
+      <img src="/ventflip/Flipping.png" alt="tails" />
     </div>
   );
 }

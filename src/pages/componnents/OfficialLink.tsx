@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function OfficialLink() {
   return (
-    <div className="w-[350px] h-[100px] md:w-[360px] md:h-[100px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
+    <div className="w-[380px] h-[100px] md:w-[380px] md:h-[100px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
       <h1 className="font-bold text-2xl text-white">Official Links :</h1>
       <div className="flex justify-evenly items-center text-center space-x-2 m-2">
         <Link href="https://steamland.xyz/" target="b_blank">

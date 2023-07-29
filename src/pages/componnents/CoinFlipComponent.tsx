@@ -30,7 +30,7 @@ export default function CoinFlipComponent(props: {
   handlePlayAgain: () => void;
 }) {
   return (
-    <div className="w-[360px] h-[600px] md:w-[360px] md:h-[600px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
+    <div className="w-[380px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
       {props.isEnd && (
         <div className="win-effect">
           {props.isWon && <ReactConfetti className="h-screen w-full" />}
@@ -39,17 +39,16 @@ export default function CoinFlipComponent(props: {
       {props.isProgress ? (
         <div className="flip-box-progress">
           {props.isFlipping ? (
-            <CoinFlipping heads={props.isBet} />
+            <CoinFlipping />
           ) : (
             <>
               {props.isEnd ? (
                 <Coin
                   isHead={props.isWon === props.isBet}
                   result={props.isWon || !props.isProgress}
-                  className="coin-animation"
                 />
               ) : (
-                <Coin isHead={props.isBet} className="coin-animation" />
+                <Coin isHead={props.isBet} />
               )}
             </>
           )}
@@ -57,17 +56,21 @@ export default function CoinFlipComponent(props: {
             <>
               {props.isWon ? (
                 <>
-                  <p className="result-text text-green-500">YOU WON</p>
-                  <p className="result-value text-green-500">
+                  <h1 className="text-2xl font-bold  text-center text-green-500">
+                    YOU WON
+                  </h1>
+                  <h1 className="text-2xl font-bold  text-center text-green-500">
                     {props.amount * 2} SOL
-                  </p>
+                  </h1>
                 </>
               ) : (
                 <>
-                  <p className="result-text text-red-500">YOU LOST</p>
-                  <p className="result-value text-red-500">
+                  <h1 className="text-2xl mb-5 font-bold  text-center text-red-500">
+                    YOU LOST
+                  </h1>
+                  <h1 className="text-2xl mb-5 font-bold text-center text-red-500">
                     {props.amount} SOL
-                  </p>
+                  </h1>
                 </>
               )}
 
@@ -92,8 +95,8 @@ export default function CoinFlipComponent(props: {
 
               <h4>
                 {props.isBet ? "HEADS" : "TAILS"}{" "}
-                <span className="text-purple-500">FOR</span>{" "}
-                <span className="text-yellow-500">{props.amount}</span> SOL
+                <h1 className="text-purple-500">FOR</h1>{" "}
+                <h1 className="text-yellow-500">{props.amount}</h1> SOL
               </h4>
             </>
           )}

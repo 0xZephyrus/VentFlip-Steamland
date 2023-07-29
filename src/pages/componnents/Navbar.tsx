@@ -1,7 +1,11 @@
+import useText from "@/hooks/useText";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
+  const currentText = useText();
   const WalletMultiButtonDynamic = dynamic(
     async () =>
       (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
@@ -9,18 +13,14 @@ export default function Navbar() {
   );
 
   return (
-    <div className=" absolute w-screen p-5 flex justify-between items-center">
-      <div className="bg-white uppercase font-bold text-blue-500 py-2 px-4 rounded">
-        <a href="https://steamland.xyz" rel="noreferrer">
-          <div className="logo">
-            {/* eslint-disable-next-line */}
-
-            <p>
-              {"{STEAMLAND}"}
-              <span>COIN</span>
-            </p>
-          </div>
-        </a>
+    <div className=" absolute w-screen p-4 flex justify-between items-center">
+      <div className=" md:flex items-center box-border space-x-4 ">
+        <Link href="https://steamland.xyz" rel="noreferrer">
+          <Image src="/icon/Profile.png" alt="Profile" width={90} height={80} />
+        </Link>
+        <div className=" hidden md:flex items-center bg-white rounded-[15px] py-[3px] pb-[5px] px-[15px] shadow-lg ml-2 border-[3px] border-[#5d4418]">
+          <h1 className=" text-sm text-primary">{currentText}</h1>
+        </div>
       </div>
       <WalletMultiButtonDynamic />
     </div>

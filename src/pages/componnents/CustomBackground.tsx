@@ -8,9 +8,9 @@ const CustomBackground: React.FC<CustomBackgroundProps> = ({
   changeBackground,
 }) => {
   return (
-    <div className="w-[350px] h-[225px] md:w-[360px] md:h-[225px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
+    <div className="w-[380px] h-[220px] md:w-[380px] md:h-[220px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
       <h1 className=" font-bold text-2xl text-white">Background :</h1>
-      <div className=" grid grid-cols-3 grid-rows-3 gap-4 justify-evenly items-center text-center mt-5 ">
+      <div className=" grid grid-cols-3 grid-rows-3 gap-4 justify-evenly items-center text-center mt-2 ">
         <button
           className="bg-[#756394] hover:bg-[#F3CE49] h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105"
           onClick={() => changeBackground("/background/FlayingCity.png")}

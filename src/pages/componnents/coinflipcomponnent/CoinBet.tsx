@@ -1,4 +1,5 @@
 import { useWallet } from "@solana/wallet-adapter-react";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 type CoinBetProps = {
@@ -20,7 +21,7 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
   ];
 
   let { connected } = useWallet();
-  
+
   useEffect(() => {
     setDisabled(!connected);
   }, [connected]);
@@ -34,7 +35,7 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
             key={button.value}
             // CSS classes for styling the button
             className={`
-              uppercase text-white rounded-3xl w-24 h-10 border-2 font-bold text-sm md:text-xl shadow-lg hover:scale-105 
+              uppercase justify-center items-center text-white rounded-3xl w-30 h-10 border-2 font-bold text-sm md:text-xl shadow-lg hover:scale-105 
               ${
                 amount === button.value
                   ? "bg-[#f3ce49] text-black"
@@ -51,6 +52,7 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
             // Call setAmount function with the button value when clicked
             onClick={() => setAmount(button.value)}
           >
+            {/* Display the label and the Solana icon */}
             <span>{button.label}</span>
           </button>
         ))}

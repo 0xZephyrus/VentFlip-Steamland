@@ -55,12 +55,12 @@ const CoinFlip: React.FC = () => {
       className="min-h-screen w-screen  bg-cover object-cover flex items-center justify-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className=" w-auto h-auto mt-[120px] md:mt-[90px] mb-2 ">
-        <div className=" grid grid-rows-3 grid-flow-col gap-4">
-          <div className=" row-start-1 row-end-4">
+      <div className=" w-auto h-auto mt-[130px] md:mt-[130px]  ">
+        <div className="grid grid-row-1 md:grid-row-1 md:grid-cols-3  gap-2">
+          <div className="row-start-3 md:row-span-3  md:col-start-1">
             <History history={history} />
           </div>
-          <div className="row-start-1 row-end-4 ">
+          <div className=" md:row-span-3 row-start-1 md:col-start-2 ">
             <CoinFlipComponent
               handlePlay={handlePlay}
               isEnd={isEnd}
@@ -78,7 +78,7 @@ const CoinFlip: React.FC = () => {
               handlePlayAgain={handlePlayAgain}
             />
           </div>
-          <div className="">
+          <div className=" row-start- md:col-start-3">
             <BalanceFlip
               userFunds={userFunds}
               claimLoading={claimLoading}
@@ -87,10 +87,10 @@ const CoinFlip: React.FC = () => {
               solBalance={solBalance}
             />
           </div>
-          <div className="">
+          <div className=" md:col-start-3 md:row-start-2">
             <CustomBackground changeBackground={changeBackground} />
           </div>
-          <div className=" ">
+          <div className="  md:col-start-3 md:row-start-3">
             <OfficialLink />
           </div>
         </div>
