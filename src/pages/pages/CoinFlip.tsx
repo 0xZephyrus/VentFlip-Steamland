@@ -38,14 +38,13 @@ const CoinFlip: React.FC = () => {
     claimLoading,
     userFunds,
     handlePlayAgain,
-    handleClaim, 
+    handleClaim,
   } = useCoinFlipGame();
 
   const getHistory = useCallback(async () => {
     const allTx: any = await getAllTransactions(new PublicKey(PROGRAM_ID));
     setHistory(allTx);
   }, []);
-
 
   useEffect(() => {
     getHistory();
@@ -57,39 +56,41 @@ const CoinFlip: React.FC = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className=" w-auto h-auto mt-[120px] md:mt-[90px] mb-2 ">
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-2 md:grid-row-3 md:gap-[20px] md:gap-y-1  ">
-          <div className="md:col-start-1 md:row-start-1">
-            {/* <Leaderboard /> */}
-          </div>
-          <div className="row-start-1 md:col-start-2">
-            <CoinFlipComponent 
-                handlePlay={handlePlay}
-                isEnd={isEnd}
-                setAmount={setAmount}
-                setIsBet={setIsBet}
-                solBalance={solBalance}
-                betLoading={betLoading}
-                isBet={isBet}
-                amount={amount}
-                userLoading={userLoading}
-                isWon={isWon}
-                isProgress={isProgress}
-                isFlipping={isFlipping}
-                isDepositing={isDepositing}
-                handlePlayAgain={handlePlayAgain}
-              />
-          </div>
-          <div className="row-start- md:col-start-3 md:row-start-1">
-            {/* <HistoryItem /> */}
+        <div className=" grid grid-rows-3 grid-flow-col gap-4">
+          <div className=" row-start-1 row-end-4">
             <History history={history} />
+          </div>
+          <div className="row-start-1 row-end-4 ">
+            <CoinFlipComponent
+              handlePlay={handlePlay}
+              isEnd={isEnd}
+              setAmount={setAmount}
+              setIsBet={setIsBet}
+              solBalance={solBalance}
+              betLoading={betLoading}
+              isBet={isBet}
+              amount={amount}
+              userLoading={userLoading}
+              isWon={isWon}
+              isProgress={isProgress}
+              isFlipping={isFlipping}
+              isDepositing={isDepositing}
+              handlePlayAgain={handlePlayAgain}
+            />
+          </div>
+          <div className="">
+            <BalanceFlip
+              userFunds={userFunds}
+              claimLoading={claimLoading}
+              handleClaim={handleClaim}
+              userLoading={userLoading}
+              solBalance={solBalance}
+            />
           </div>
           <div className="">
             <CustomBackground changeBackground={changeBackground} />
           </div>
-          <div className="row-start-2 md:col-start-2">
-            <BalanceFlip userFunds={userFunds} claimLoading={claimLoading} handleClaim={handleClaim} userLoading={userLoading} />
-          </div>
-          <div className=" col-start-1 md:col-start-3">
+          <div className=" ">
             <OfficialLink />
           </div>
         </div>

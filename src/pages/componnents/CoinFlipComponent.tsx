@@ -13,23 +13,22 @@ import CoinFlipping from "./coinflipcomponnent/CoinFliping";
 import ReactConfetti from "react-confetti";
 import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
 
-export default function CoinFlipComponent( props: {
-  handlePlay: () => void,
-  isEnd: boolean,
-  setAmount: (amount: number) => void,
-  setIsBet: (isBet: boolean) => void,
-  solBalance: number,
-  betLoading: boolean,
-  isBet: boolean,
-  amount: number,
-  userLoading: boolean,
-  isWon: boolean
-  isProgress: boolean,
-  isFlipping: boolean,
-  isDepositing: boolean,
-  handlePlayAgain: () => void,
+export default function CoinFlipComponent(props: {
+  handlePlay: () => void;
+  isEnd: boolean;
+  setAmount: (amount: number) => void;
+  setIsBet: (isBet: boolean) => void;
+  solBalance: number;
+  betLoading: boolean;
+  isBet: boolean;
+  amount: number;
+  userLoading: boolean;
+  isWon: boolean;
+  isProgress: boolean;
+  isFlipping: boolean;
+  isDepositing: boolean;
+  handlePlayAgain: () => void;
 }) {
-
   return (
     <div className="w-[360px] h-[600px] md:w-[360px] md:h-[600px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
       {props.isEnd && (
@@ -66,7 +65,9 @@ export default function CoinFlipComponent( props: {
               ) : (
                 <>
                   <p className="result-text text-red-500">YOU LOST</p>
-                  <p className="result-value text-red-500">{props.amount} SOL</p>
+                  <p className="result-value text-red-500">
+                    {props.amount} SOL
+                  </p>
                 </>
               )}
 
@@ -104,9 +105,6 @@ export default function CoinFlipComponent( props: {
             VENT FLIP
           </h1>
 
-          <h1 className="text-center text-2xl font-bold text-[#7C612E]">
-            Balance: {props.solBalance} SOL
-          </h1>
           <CoinSelection isBet={props.isBet} setIsBet={props.setIsBet} />
           <CoinBet
             amount={props.amount}
