@@ -7,7 +7,7 @@ export default function OfficialLink() {
       <h1 className="font-bold text-2xl text-white">Official Links :</h1>
       <div className="flex justify-evenly items-center text-center space-x-2 m-2">
         <Link href="https://steamland.xyz/" target="b_blank">
-          <button className="bg-[#756394] hover:bg-[#F3CE49] h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
+          <button className="bg-[#756394] hover:bg-[#F3CE49] text-white hover:text-black h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
             Website
           </button>
         </Link>
@@ -15,12 +15,12 @@ export default function OfficialLink() {
           href="https://discord.gg/steamland-986654523806318622"
           target="b_blank"
         >
-          <button className="bg-[#756394] hover:bg-[#F3CE49] h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
+          <button className="bg-[#756394] hover:bg-[#F3CE49] text-white hover:text-black h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
             Discord
           </button>
         </Link>
         <Link href="https://twitter.com/SteamlandNFT" target="b_blank">
-          <button className="bg-[#756394] hover:bg-[#F3CE49] h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
+          <button className="bg-[#756394] hover:bg-[#F3CE49] text-white hover:text-black h-8 w-[100px] rounded-lg p-1 font-bold hover:scale-105">
             Twitter
           </button>
         </Link>

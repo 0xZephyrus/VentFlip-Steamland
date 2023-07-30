@@ -53,6 +53,7 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
             onClick={() => setAmount(button.value)}
           >
             {/* Display the label and the Solana icon */}
+
             <span>{button.label}</span>
           </button>
         ))}

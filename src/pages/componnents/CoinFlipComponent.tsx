@@ -12,6 +12,7 @@ import Coin from "./coinflipcomponnent/Coin";
 import CoinFlipping from "./coinflipcomponnent/CoinFliping";
 import ReactConfetti from "react-confetti";
 import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
+import Image from "next/image";
 
 export default function CoinFlipComponent(props: {
   handlePlay: () => void;
@@ -65,10 +66,10 @@ export default function CoinFlipComponent(props: {
                 </>
               ) : (
                 <>
-                  <h1 className="text-2xl mb-5 font-bold  text-center text-red-500">
+                  <h1 className="text-2xl mb-2 font-bold  text-center text-red-500">
                     YOU LOST
                   </h1>
-                  <h1 className="text-2xl mb-5 font-bold text-center text-red-500">
+                  <h1 className="text-2xl mb-1 font-bold text-center text-red-500">
                     {props.amount} SOL
                   </h1>
                 </>
@@ -82,23 +83,23 @@ export default function CoinFlipComponent(props: {
               />
             </>
           ) : (
-            <>
-              {props.isDepositing && !props.isFlipping && (
-                <LoadingText
-                  text="waiting for deposit..."
-                  className="waiting"
-                />
+            <div className="  justify-center items-center text-center">
+              {props.isDepositing && (
+                <>
+                  <h1 className="text-black">waiting for deposit...</h1>
+                  <h1 className="text-purple-500">
+                    {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
+                  </h1>
+                  <Image
+                    src="/ventflip/loading.gif"
+                    height={200}
+                    width={200}
+                    priority
+                    alt="loading"
+                  />
+                </>
               )}
-              {props.isFlipping && (
-                <LoadingText text="Flipping..." className="waiting" />
-              )}
-
-              <h4>
-                {props.isBet ? "HEADS" : "TAILS"}{" "}
-                <h1 className="text-purple-500">FOR</h1>{" "}
-                <h1 className="text-yellow-500">{props.amount}</h1> SOL
-              </h4>
-            </>
+            </div>
           )}
         </div>
       ) : (
