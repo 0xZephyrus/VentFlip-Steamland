@@ -22,7 +22,10 @@ export default function Navbar() {
           <h1 className=" text-sm text-primary">{currentText}</h1>
         </div>
       </div>
-      <WalletMultiButtonDynamic />
+
+      <div className="wallet hover:scale-110 transition-transform cursor-pointer">
+        <WalletMultiButtonDynamic style={{ height: "42px" }} />
+      </div>
     </div>
   );
 }

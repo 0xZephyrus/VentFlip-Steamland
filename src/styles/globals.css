@@ -59,3 +59,70 @@ li {
 button {
   cursor: pointer;
 }
+
+button:disabled {
+  color: gray;
+}
+
+.text-primary {
+  color: #604a23;
+}
+
+.text-secondary {
+  color: #dab97b;
+}
+
+.bg-primary {
+  background: #7c612e;
+  border: 2px solid #604a23;
+}
+
+button.bg-primary:hover {
+  background: #604a23;
+}
+
+.wallet {
+  display: flex;
+  background: #7c612e;
+  border: 2px solid #604a23;
+  color: #dab97b;
+  border-radius: 50px;
+  height: 44px;
+  padding: 0 5px;
+}
+
+.wallet-adapter-dropdown-list {
+  background: #7c612e !important;
+  border: 2px solid #604a23;
+  color: #dab97b;
+}
+
+.wallet-adapter-dropdown-list-item:not([disabled]):hover {
+  background-color: #604a23 !important;
+}
+
+button.wallet-adapter-button-trigger {
+  cursor: pointer;
+  color: rgb(var(--foreground-rgb)) !important;
+  border: 1px solid rgb(var(--tertiary-background-rgb)) !important;
+  border-radius: var(--border-radius) !important;
+  background-color: rgb(var(--secondary-background-rgb)) !important;
+}
+
+button.wallet-adapter-button-trigger:hover {
+  background-color: rgb(var(--hover-background-rgb)) !important;
+}
+
+.bg-glass {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.29);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+.bg-glass:hover {
+  background: rgba(207, 207, 207, 0.39);
+}
