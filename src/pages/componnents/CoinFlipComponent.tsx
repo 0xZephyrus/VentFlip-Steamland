@@ -37,40 +37,65 @@ export default function CoinFlipComponent(props: {
           {props.isWon && <ReactConfetti className="h-screen w-full" />}
         </div>
       )}
+
       {props.isProgress ? (
-        <div className="flip-box-progress">
-          {props.isFlipping ? (
-            <CoinFlipping />
-          ) : (
-            <>
-              {props.isEnd ? (
-                <Coin
-                  isHead={props.isWon === props.isBet}
-                  result={props.isWon || !props.isProgress}
-                />
-              ) : (
-                <Coin isHead={props.isBet} />
-              )}
-            </>
+        <div className="flex flex-col items-center justify-center text-center">
+          {props.isFlipping && (
+            <div className="flex flex-col items-center space-y-1">
+              <Image
+                src="/ventflip/CoinFlipping.gif"
+                alt="CoinFlipping"
+                height={100}
+                width={100}
+                className="w-[300px]"
+              />
+              <h1 className="text-black font-bold text-xl">
+                Waiting for flipping...
+              </h1>
+              <h1 className="text-purple-500 font-bold text-lg">
+                {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
+              </h1>
+              <Image
+                src="/ventflip/loading.gif"
+                height={200}
+                width={200}
+                priority
+                alt="loading"
+              />
+            </div>
           )}
           {props.isEnd ? (
             <>
               {props.isWon ? (
                 <>
-                  <h1 className="text-2xl font-bold  text-center text-green-500">
-                    YOU WON
+                  <Image
+                    src="/ventflip/congrats.gif"
+                    alt="congrats"
+                    height={100}
+                    width={100}
+                    className="w-[370px]"
+                  />
+                  <h1 className="text-2xl font-bold text-[#846B3B]">
+                    You Won!
                   </h1>
-                  <h1 className="text-2xl font-bold  text-center text-green-500">
-                    {props.amount * 2} SOL
+                  <h1 className="text-2xl font-bold text-green-500">
+                    + {props.amount * 2} SOL
                   </h1>
                 </>
               ) : (
                 <>
-                  <h1 className="text-2xl mb-2 font-bold  text-center text-red-500">
-                    YOU LOST
+                  <Image
+                    src="/ventflip/Oops.gif"
+                    alt="Oops"
+                    height={100}
+                    width={100}
+                    className="w-[370px]"
+                  />
+                  <h1 className="text-2xl mb-2 font-bold text-[#846B3B]">
+                    You Lose!
                   </h1>
-                  <h1 className="text-2xl mb-1 font-bold text-center text-red-500">
-                    {props.amount} SOL
+                  <h1 className="text-2xl mb-1 font-bold text-red-500">
+                    - {props.amount} SOL
                   </h1>
                 </>
               )}
@@ -83,31 +108,38 @@ export default function CoinFlipComponent(props: {
               />
             </>
           ) : (
-            <div className="  justify-center items-center text-center">
-              {props.isDepositing && (
-                <>
-                  <h1 className="text-black">waiting for deposit...</h1>
-                  <h1 className="text-purple-500">
+            <div className="flex flex-col items-center justify-center text-center">
+              {props.isDepositing && !props.isFlipping && (
+                <div className="flex flex-col items-center space-y-1">
+                  <Image
+                    src="/ventflip/machine.gif"
+                    alt="loading"
+                    height={100}
+                    width={100}
+                    className="w-[370px]"
+                  />
+                  <h1 className="text-[#846B3B] font-bold text-xl">
+                    Waiting for deposit...
+                  </h1>
+                  <h1 className="text-[#846B3B] font-bold text-[25px]">
                     {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
                   </h1>
                   <Image
                     src="/ventflip/loading.gif"
-                    height={200}
-                    width={200}
-                    priority
                     alt="loading"
+                    height={100}
+                    width={100}
+                    className="w-[200px]"
                   />
-                </>
+                </div>
               )}
             </div>
           )}
         </div>
       ) : (
-        <>
+        <div className="text-center">
           <CoinImages isBet={props.isBet} />
-          <h1 className="text-2xl font-bold mb-6 text-center text-[#7C612E]">
-            VENT FLIP
-          </h1>
+          <h1 className="text-2xl font-bold mb-6 text-[#7C612E]">VENT FLIP</h1>
 
           <CoinSelection isBet={props.isBet} setIsBet={props.setIsBet} />
           <CoinBet
@@ -122,7 +154,7 @@ export default function CoinFlipComponent(props: {
             amount={props.amount}
             handlePlay={props.handlePlay}
           />
-        </>
+        </div>
       )}
     </div>
   );

@@ -10,6 +10,7 @@ export default function ProgressBar(props: {
   const { isEnd, isWon, isFetched, handlePlayAgain } = props;
   const [percent, setPercent] = useState(0);
   const [end, setEnd] = useState(false);
+
   useEffect(() => {
     if (isEnd) {
       setPercent(30);
@@ -27,8 +28,8 @@ export default function ProgressBar(props: {
     } else {
       setEnd(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEnd, isFetched]);
+
   return (
     <>
       {!end && isWon && (
@@ -37,36 +38,32 @@ export default function ProgressBar(props: {
           className="progressing"
         />
       )}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="flex flex-col items-center">
         {!end && isWon && (
-          <div className="progress-bar" style={{ marginTop: isWon ? 0 : 20 }}>
+          <div
+            className="w-full h-4 bg-gray-200 rounded-full"
+            style={{ marginTop: isWon ? 0 : 20 }}
+          >
             <div
-              className={`bar-line ${percent === 30 ? "half-bar" : ""}  ${
-                percent === 100 ? "half-bar full-bar" : ""
-              }`}
+              className={`h-4 bg-[#F3CE49] rounded-full ${
+                percent === 30 ? "w-1/2" : ""
+              } ${percent === 100 ? "w-full" : ""}`}
             ></div>
           </div>
         )}
         {isWon && end && (
-          <p className="text-success">
+          <p className="text-success mt-4">
             Your win sent successfully to your funds wallet.
           </p>
         )}
         <button
-          className={` bg-[#7c612e]  hover:bg-[#f3ce49]  w-[200px] h-[50px] hover:scale-105 rounded-2xl mt-4 font-bold text-sm md:text-xl text-[#ffffff] ${
+          className={`bg-[#7C612E] hover:bg-[#F3CE49] w-40 h-10 rounded-2xl mt-6 font-bold text-sm md:text-xl text-white ${
             !end ? "loading" : ""
           }`}
-          style={{ marginTop: 30, marginRight: "auto", marginLeft: "auto" }}
           disabled={!end}
           onClick={() => handlePlayAgain()}
         >
-          <>PLAY AGAIN</>
+          PLAY AGAIN
         </button>
       </div>
     </>

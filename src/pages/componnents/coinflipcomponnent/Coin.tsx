@@ -11,7 +11,7 @@ export default function Coin(props: {
     <>
       {isHead ? (
         <img
-          src="/ventflip/congrats.png"
+          src="/ventflip/congrats.gif"
           alt=""
           className={`mb-10 mt-10  ${className ? className : ""} ${
             result ? "normal" : "lost"
@@ -19,7 +19,7 @@ export default function Coin(props: {
         />
       ) : (
         <img
-          src="/ventflip/Oops.png"
+          src="/ventflip/Oops.gif"
           alt=""
           className={`mb-10 mt-10 ${className ? className : ""} ${
             result ? "" : "lost"
