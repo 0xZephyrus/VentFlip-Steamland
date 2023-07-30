@@ -18,7 +18,7 @@ export default function Navbar() {
         <Link href="https://steamland.xyz" rel="noreferrer">
           <Image src="/icon/Profile.png" alt="Profile" width={90} height={80} />
         </Link>
-        <div className=" hidden md:flex items-center bg-white rounded-[15px] py-[3px] pb-[5px] px-[15px] shadow-lg ml-2 border-[3px] border-[#5d4418]">
+        <div className=" hidden md:flex items-center bg-white rounded-[15px] p-3 font-bold shadow-lg ml-2 border-[3px] border-[#5d4418]">
           <h1 className=" text-sm text-primary">{currentText}</h1>
         </div>
       </div>

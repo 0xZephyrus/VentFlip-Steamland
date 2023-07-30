@@ -29,17 +29,17 @@ const CoinBet: React.FC<CoinBetProps> = ({ amount, setAmount, solBalance }) => {
   return (
     <div className="mb-5">
       {/* Button container with grid layout */}
-      <div className="grid grid-cols-3 gap-4 mt-10">
+      <div className="grid grid-cols-3 gap-4 mt-5">
         {buttonData.map((button) => (
           <button
             key={button.value}
             // CSS classes for styling the button
             className={`
-              uppercase justify-center items-center text-white rounded-3xl w-30 h-10 border-2 font-bold text-sm md:text-xl shadow-lg hover:scale-105 
+              uppercase justify-center items-center text-white rounded-3xl w-30 h-[50px]  font-bold text-sm md:text-xl shadow-lg hover:scale-105 
               ${
                 amount === button.value
-                  ? "bg-[#f3ce49] text-black"
-                  : "bg-[#7c612e] text-white"
+                  ? "bg-[#f3ce49] "
+                  : "bg-[#7c612e] text-[#D7B779] hover:text-white"
               } 
               ${
                 disabled || solBalance <= button.value

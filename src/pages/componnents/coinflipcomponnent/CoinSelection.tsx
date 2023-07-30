@@ -8,18 +8,22 @@ type CoinSelectionProps = {
 const CoinSelection: React.FC<CoinSelectionProps> = ({ isBet, setIsBet }) => {
   return (
     <div className="mb-4">
-      <div className="grid grid-flow-col justify-center gap-10 mt-8">
+      <div className="grid grid-flow-col justify-center gap-[20px] mt-8">
         <button
-          className={`text-white uppercase rounded-3xl py-2 px-6 border-[1px] font-bold text-sm md:text-xl shadow-lg hover:scale-105 ${
-            isBet ? "bg-[#F3CE49]" : "bg-[#7c612e]"
+          className={`text-white uppercase w-[150px] h-[50px] rounded-3xl py-2 px-6  font-bold text-sm md:text-xl shadow-lg hover:scale-105 ${
+            isBet
+              ? "bg-[#F3CE49]"
+              : "bg-[#7c612e] text-[#D7B779] hover:text-white"
           }`}
           onClick={() => setIsBet(true)}
         >
           Heads
         </button>
         <button
-          className={`text-white uppercase rounded-3xl py-2 px-6 border-[1px] font-bold text-sm md:text-xl shadow-lg hover:scale-105 ${
-            !isBet ? "bg-[#F3CE49]" : "bg-[#7c612e]"
+          className={`text-white uppercase w-[150px] h-[50px] rounded-3xl py-2 px-6  font-bold text-sm md:text-xl shadow-lg hover:scale-105 ${
+            !isBet
+              ? "bg-[#F3CE49]"
+              : "bg-[#7c612e] text-[#D7B779] hover:text-white"
           }`}
           onClick={() => setIsBet(false)}
         >

@@ -5,7 +5,7 @@ const useText = () => {
 
   const texts = [
     "Hi, Gm Steamlanders",
-    "Welcome to the flying city",
+    "Welcome to the Vent Flip",
     "Pack your bags and head on a journey towards the flying city",
     "Get ready for the next chapter of Steamland!",
   ];

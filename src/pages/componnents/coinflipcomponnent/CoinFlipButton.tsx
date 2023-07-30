@@ -21,8 +21,8 @@ const CoinFlipButton: React.FC<CoinFlipButtonProps> = ({
       <button
         className={`${
           betLoading
-            ? "bg-[#f3ce49] pointer-events-none"
-            : "bg-[#7c612e]  hover:bg-[#f3ce49] "
+            ? "bg-[#f3ce49] text-white pointer-events-none"
+            : "bg-[#7c612e] text-[#D7B779] hover:text-white hover:bg-[#f3ce49] "
         } ${
           userLoading ? "loading" : ""
         }  w-[200px] h-[50px] hover:scale-105 rounded-2xl mt-4 font-bold text-sm md:text-xl text-[#ffffff]`}
