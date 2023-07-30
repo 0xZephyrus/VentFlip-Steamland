@@ -1,17 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CoinSelection from "./coinflipcomponnent/CoinSelection";
 import CoinBet from "./coinflipcomponnent/CoinBet";
 import CoinFlipButton from "./coinflipcomponnent/CoinFlipButton";
-
-import LoadingText from "./LoadingText";
 import ProgressBar from "./ProgressBar";
 import CoinImages from "./coinflipcomponnent/CoinImages";
-import Coin from "./coinflipcomponnent/Coin";
-import CoinFlipping from "./coinflipcomponnent/CoinFliping";
 import ReactConfetti from "react-confetti";
-import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
 import Image from "next/image";
 
 export default function CoinFlipComponent(props: {
@@ -30,8 +25,34 @@ export default function CoinFlipComponent(props: {
   isDepositing: boolean;
   handlePlayAgain: () => void;
 }) {
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+  useEffect(() => {
+    const audioElement = new Audio("/music2.mp3");
+    audioElement.loop = true;
+    if (isMusicPlaying) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
+
+    return () => {
+      audioElement.pause();
+    };
+  }, [isMusicPlaying]);
+
+  const handleMusicToggle = () => {
+    setIsMusicPlaying(!isMusicPlaying);
+  };
   return (
     <div className="w-[380px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
+      <button onClick={handleMusicToggle} className="w-[30px] absolute">
+        {isMusicPlaying ? (
+          <img src="/ventflip/pause.png" alt="Pause Music" />
+        ) : (
+          <img src="/ventflip/play.png" alt="Play Music" />
+        )}
+      </button>
       {props.isEnd && (
         <div className="win-effect">
           {props.isWon && <ReactConfetti className="h-screen w-full" />}
@@ -47,6 +68,7 @@ export default function CoinFlipComponent(props: {
                 alt="CoinFlipping"
                 height={300}
                 width={300}
+                unoptimized
                 priority
               />
               <h1 className="text-black font-bold text-xl">
@@ -60,6 +82,7 @@ export default function CoinFlipComponent(props: {
                 height={200}
                 width={200}
                 priority
+                unoptimized
                 alt="loading"
               />
             </div>
@@ -74,6 +97,7 @@ export default function CoinFlipComponent(props: {
                     height={300}
                     width={300}
                     priority
+                    unoptimized
                   />
                   <h1 className="text-2xl font-bold text-[#846B3B]">
                     You Won!
@@ -90,6 +114,7 @@ export default function CoinFlipComponent(props: {
                     height={300}
                     width={300}
                     priority
+                    unoptimized
                   />
                   <h1 className="text-2xl mb-2 font-bold text-[#846B3B]">
                     You Lose!
@@ -117,6 +142,7 @@ export default function CoinFlipComponent(props: {
                     height={300}
                     width={300}
                     priority
+                    unoptimized
                   />
                   <h1 className="text-[#846B3B] font-bold text-xl">
                     Waiting for deposit...
@@ -130,7 +156,7 @@ export default function CoinFlipComponent(props: {
                     height={100}
                     width={100}
                     priority
-                    className="w-[200px]"
+                    unoptimized
                   />
                 </div>
               )}
@@ -138,7 +164,7 @@ export default function CoinFlipComponent(props: {
           )}
         </div>
       ) : (
-        <div className="text-center">
+        <div className="text-center ">
           <CoinImages isBet={props.isBet} />
           <h1 className="text-2xl font-bold mb-6 text-[#7C612E]">VENT FLIP</h1>
 
