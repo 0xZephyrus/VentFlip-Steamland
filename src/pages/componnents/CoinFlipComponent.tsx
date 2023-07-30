@@ -30,6 +30,8 @@ export default function CoinFlipComponent(props: {
   useEffect(() => {
     const audioElement = new Audio("/music2.mp3");
     audioElement.loop = true;
+    audioElement.volume = 0.05; // Set the volume to 30% (0.3)
+
     if (isMusicPlaying) {
       audioElement.play();
     } else {
