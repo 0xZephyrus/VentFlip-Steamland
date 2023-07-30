@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import CoinSelection from "./coinflipcomponnent/CoinSelection";
 import CoinBet from "./coinflipcomponnent/CoinBet";
@@ -7,12 +5,12 @@ import CoinFlipButton from "./coinflipcomponnent/CoinFlipButton";
 
 import LoadingText from "./LoadingText";
 import ProgressBar from "./ProgressBar";
-import CoinImages from "./coinflipcomponnent/CoinImages";
+
 import Coin from "./coinflipcomponnent/Coin";
 import CoinFlipping from "./coinflipcomponnent/CoinFliping";
 import ReactConfetti from "react-confetti";
 import { useCoinFlipGame } from "@/hooks/useCoinFlipGame";
-import Image from "next/image";
+import CoinImages from "./coinflipcomponnent/CoinImages";
 
 export default function CoinFlipComponent(props: {
   handlePlay: () => void;
@@ -42,14 +40,10 @@ export default function CoinFlipComponent(props: {
         <div className="flex flex-col items-center justify-center text-center">
           {props.isFlipping && (
             <div className="flex flex-col items-center space-y-1">
-              <Image
+              <img
                 src="/ventflip/CoinFlipping.gif"
                 alt="CoinFlipping"
-                height={100}
-                width={100}
                 className="w-[300px]"
-                loading="lazy"
-                layout="fixed"
               />
               <h1 className="text-black font-bold text-xl">
                 Waiting for flipping...
@@ -57,12 +51,10 @@ export default function CoinFlipComponent(props: {
               <h1 className="text-purple-500 font-bold text-lg">
                 {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
               </h1>
-              <Image
+              <img
                 src="/ventflip/loading.gif"
-                height={200}
-                width={200}
-                priority
                 alt="loading"
+                className="w-[300px]"
               />
             </div>
           )}
@@ -70,12 +62,9 @@ export default function CoinFlipComponent(props: {
             <>
               {props.isWon ? (
                 <>
-                  <Image
+                  <img
                     src="/ventflip/congrats.gif"
                     alt="congrats"
-                    height={100}
-                    width={100}
-                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-2xl font-bold text-[#846B3B]">
@@ -87,12 +76,9 @@ export default function CoinFlipComponent(props: {
                 </>
               ) : (
                 <>
-                  <Image
+                  <img
                     src="/ventflip/Oops.gif"
                     alt="Oops"
-                    height={100}
-                    width={100}
-                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-2xl mb-2 font-bold text-[#846B3B]">
@@ -115,12 +101,9 @@ export default function CoinFlipComponent(props: {
             <div className="flex flex-col items-center justify-center text-center">
               {props.isDepositing && !props.isFlipping && (
                 <div className="flex flex-col items-center space-y-1">
-                  <Image
+                  <img
                     src="/ventflip/machine.gif"
                     alt="loading"
-                    height={100}
-                    width={100}
-                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-[#846B3B] font-bold text-xl">
@@ -129,12 +112,9 @@ export default function CoinFlipComponent(props: {
                   <h1 className="text-[#846B3B] font-bold text-[25px]">
                     {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
                   </h1>
-                  <Image
+                  <img
                     src="/ventflip/loading.gif"
                     alt="loading"
-                    height={100}
-                    width={100}
-                    priority
                     className="w-[200px]"
                   />
                 </div>
