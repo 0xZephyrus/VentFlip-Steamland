@@ -47,8 +47,9 @@ export default function CoinFlipComponent(props: {
                 alt="CoinFlipping"
                 height={100}
                 width={100}
-                priority
                 className="w-[300px]"
+                loading="lazy"
+                layout="fixed"
               />
               <h1 className="text-black font-bold text-xl">
                 Waiting for flipping...
