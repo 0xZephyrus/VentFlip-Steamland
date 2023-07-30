@@ -47,6 +47,7 @@ export default function CoinFlipComponent(props: {
                 alt="CoinFlipping"
                 height={100}
                 width={100}
+                priority
                 className="w-[300px]"
               />
               <h1 className="text-black font-bold text-xl">
@@ -73,6 +74,7 @@ export default function CoinFlipComponent(props: {
                     alt="congrats"
                     height={100}
                     width={100}
+                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-2xl font-bold text-[#846B3B]">
@@ -89,6 +91,7 @@ export default function CoinFlipComponent(props: {
                     alt="Oops"
                     height={100}
                     width={100}
+                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-2xl mb-2 font-bold text-[#846B3B]">
@@ -116,6 +119,7 @@ export default function CoinFlipComponent(props: {
                     alt="loading"
                     height={100}
                     width={100}
+                    priority
                     className="w-[370px]"
                   />
                   <h1 className="text-[#846B3B] font-bold text-xl">
@@ -129,6 +133,7 @@ export default function CoinFlipComponent(props: {
                     alt="loading"
                     height={100}
                     width={100}
+                    priority
                     className="w-[200px]"
                   />
                 </div>
