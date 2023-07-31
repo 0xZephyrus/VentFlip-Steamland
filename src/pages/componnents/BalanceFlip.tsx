@@ -20,7 +20,7 @@ export default function CoinFlipComponent(props: {
         <div className="bg-[#756394]  h-[50px] w-[100px] rounded-lg text-[20px] text-white  font-bold justify-center  items-center flex ">
           Balance
         </div>
-        <div className="bg-white  h-[50px] w-[250px] rounded-lg  text-2xl  font-bold justify-center  items-center flex gap-4 ">
+        <div className="bg-white  h-[50px] w-[220px] md:w-[250px] rounded-lg  text-2xl  font-bold justify-center  items-center flex gap-4 ">
           {props.userLoading ? "--" : props.solBalance.toLocaleString()}
           <Image
             src="/ventflip/draksol.png"
@@ -33,7 +33,7 @@ export default function CoinFlipComponent(props: {
         <div className="bg-[#756394] h-[50px] w-[100px] rounded-lg text-[20px]  text-white font-bold justify-center  items-center flex">
           Funds
         </div>
-        <div className="bg-white  h-[50px] w-[250px] rounded-lg text-2xl  font-bold justify-center  items-center flex gap-4 ">
+        <div className="bg-white  h-[50px] w-[220px] md:w-[250px] rounded-lg text-2xl  font-bold justify-center  items-center flex gap-4 ">
           {props.userLoading ? "--" : props.userFunds.toLocaleString()}
           <Image
             src="/ventflip/draksol.png"
