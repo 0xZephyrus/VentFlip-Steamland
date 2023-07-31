@@ -55,7 +55,7 @@ const CoinFlip: React.FC = () => {
       className="min-h-screen w-screen  bg-cover object-cover flex items-center justify-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className=" w-auto h-auto mt-[130px] md:mt-[130px]  ">
+      <div className=" w-auto h-auto mt-[120px] md:mt-[120px] mb-5 ">
         <div className="grid grid-row-1 md:grid-row-1 md:grid-cols-3  gap-2">
           <div className="row-start-3 md:row-span-3  md:col-start-1">
             <History history={history} />
