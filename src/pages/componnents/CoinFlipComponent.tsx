@@ -73,10 +73,10 @@ export default function CoinFlipComponent(props: {
                 unoptimized
                 priority
               />
-              <h1 className="text-black font-bold text-xl">
+              <h1 className="text-[#846B3B] font-bold text-xl">
                 Waiting for flipping...
               </h1>
-              <h1 className="text-purple-500 font-bold text-lg">
+              <h1 className="text-[#846B3B] font-bold text-[25px]">
                 {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
               </h1>
               <Image
@@ -155,8 +155,8 @@ export default function CoinFlipComponent(props: {
                   <Image
                     src="/ventflip/loading.gif"
                     alt="loading"
-                    height={100}
-                    width={100}
+                    height={200}
+                    width={200}
                     priority
                     unoptimized
                   />
