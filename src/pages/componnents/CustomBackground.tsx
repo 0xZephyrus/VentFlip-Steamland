@@ -29,7 +29,7 @@ const CustomBackground: React.FC<CustomBackgroundProps> = ({
   };
 
   return (
-    <div className="w-[380px] h-[200px] md:w-[380px] md:h-[200px] bg-[#292A2D] bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
+    <div className="w-[350px] h-[200px] md:w-[380px] md:h-[200px] bg-[#292A2D] bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
       <h1 className="font-bold text-2xl text-white">Background :</h1>
       <div className="grid grid-cols-3 grid-rows-3 gap-4 justify-evenly items-center text-center mt-2">
         {backgroundOptions.map((option, index) => (

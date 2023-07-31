@@ -47,7 +47,7 @@ export default function CoinFlipComponent(props: {
     setIsMusicPlaying(!isMusicPlaying);
   };
   return (
-    <div className="w-[380px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
+    <div className="w-[350px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
       <button onClick={handleMusicToggle} className="w-[30px] absolute">
         {isMusicPlaying ? (
           <img src="/ventflip/pause.png" alt="Pause Music" />

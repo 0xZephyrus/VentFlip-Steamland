@@ -14,7 +14,7 @@ export default function CoinFlipComponent(props: {
   const wallet = useWallet();
 
   return (
-    <div className="w-[380px] h-[230px] md:w-[380px] md:h-[230px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
+    <div className="w-[350px] h-[230px] md:w-[380px] md:h-[230px] bg-[#292A2D]  bg-opacity-95 border-4 border-black shadow p-2 rounded-2xl">
       <h1 className=" font-bold text-2xl text-white mb-1">Steam Bank :</h1>
       <div className=" grid grid-rows-1 grid-cols-1  gap-2 items-center justify-center text-center ">
         <div className="bg-[#756394]  h-[50px] w-[100px] rounded-lg text-[20px] text-white  font-bold justify-center  items-center flex ">
