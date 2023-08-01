@@ -52,8 +52,10 @@ export default function ProgressBar(props: {
           </div>
         )}
         {isWon && end && (
-          <p className="text-success mt-4">
-            Your win sent successfully to your funds wallet.
+          <p className="text-success mt-4 text-[#846B3B]">
+            Your win sent successfully
+            <br />
+            to your funds wallet.
           </p>
         )}
         <button

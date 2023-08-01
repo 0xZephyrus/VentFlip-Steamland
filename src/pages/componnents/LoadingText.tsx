@@ -13,9 +13,13 @@ export default function LoadingText(props: {
     setTextArray(array);
   }, [props.text]);
   return (
-    <div className={`s3-loading  ${props.className ? props.className : ""}`}>
+    <div
+      className={`s3-loading text-[#846B3B]  ${
+        props.className ? props.className : ""
+      }`}
+    >
       {textArray.map((item, key) => (
-        <span className={`s3-letter`} key={key}>
+        <span className={`s3-letter text-[#846B3B]`} key={key}>
           {item}
         </span>
       ))}

@@ -17,15 +17,15 @@ const CoinFlipButton: React.FC<CoinFlipButtonProps> = ({
   handlePlay,
 }) => {
   return (
-    <div className="mb-4 flex justify-center">
+    <div className=" mb-4 flex justify-center">
       <button
         className={`${
           betLoading
-            ? "bg-[#f3ce49] text-white pointer-events-none"
-            : "bg-[#7c612e] text-[#D7B779] hover:text-white hover:bg-[#f3ce49] "
+            ? "bg-[#f3ce49]  text-black"
+            : "bg-[#7c612e] text-white hover:text-black hover:bg-[#f3ce49] "
         } ${
           userLoading ? "loading" : ""
-        }  w-[200px] h-[50px] border-1-[#604A23] border hover:scale-105 rounded-2xl mt-4 font-bold text-sm md:text-xl text-[#ffffff]`}
+        }  w-[200px] h-[50px] border-1-[#604A23]  border hover:scale-105 rounded-[15px] mt-4 font-bold text-sm md:text-xl `}
         onClick={handlePlay}
         disabled={betLoading}
         title={solBalance <= amount + 0.002 ? "Not enough SOL" : ""}

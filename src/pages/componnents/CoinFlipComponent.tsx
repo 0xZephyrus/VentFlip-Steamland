@@ -47,7 +47,7 @@ export default function CoinFlipComponent(props: {
     setIsMusicPlaying(!isMusicPlaying);
   };
   return (
-    <div className="w-[350px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
+    <div className="w-[360px] h-[550px] md:w-[380px] md:h-[550px] bg-white bg-opacity-95 border-4 border-black shadow p-2 rounded-3xl">
       <button onClick={handleMusicToggle} className="w-[30px] absolute">
         {isMusicPlaying ? (
           <img src="/ventflip/pause.png" alt="Pause Music" />
@@ -64,28 +64,31 @@ export default function CoinFlipComponent(props: {
       {props.isProgress ? (
         <div className="flex flex-col items-center justify-center text-center">
           {props.isFlipping && (
-            <div className="flex flex-col items-center space-y-1">
+            <div className="flex flex-col items-center mt-10 ">
               <Image
                 src="/ventflip/CoinFlipping.gif"
                 alt="CoinFlipping"
-                height={300}
-                width={300}
+                height={270}
+                width={270}
                 unoptimized
                 priority
               />
-              <h1 className="text-[#846B3B] font-bold text-xl">
-                Waiting for flipping...
-              </h1>
-              <h1 className="text-[#846B3B] font-bold text-[25px]">
-                {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
-              </h1>
+              <div className="mt-5">
+                <h1 className="text-[#846B3B] font-mono text-md ">
+                  Waiting for flipping...
+                </h1>
+                <h1 className="text-[#846B3B] font-bold text-[25px] mb-4">
+                  {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
+                </h1>
+              </div>
               <Image
-                src="/ventflip/loading.gif"
-                height={200}
-                width={200}
+                src="/ventflip/loading1.gif"
+                alt="loading"
+                height={70}
+                width={70}
                 priority
                 unoptimized
-                alt="loading"
+                className="mt-5"
               />
             </div>
           )}
@@ -137,7 +140,7 @@ export default function CoinFlipComponent(props: {
           ) : (
             <div className="flex flex-col items-center justify-center text-center">
               {props.isDepositing && !props.isFlipping && (
-                <div className="flex flex-col items-center space-y-1">
+                <div className="flex flex-col items-center mt-10 ">
                   <Image
                     src="/ventflip/machine.gif"
                     alt="machine"
@@ -146,19 +149,22 @@ export default function CoinFlipComponent(props: {
                     priority
                     unoptimized
                   />
-                  <h1 className="text-[#846B3B] font-bold text-xl">
-                    Waiting for deposit...
-                  </h1>
-                  <h1 className="text-[#846B3B] font-bold text-[25px]">
-                    {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
-                  </h1>
+                  <div className="mt-5">
+                    <h1 className="text-[#846B3B] font-mono text-md ">
+                      Waiting for deposit...
+                    </h1>
+                    <h1 className="text-[#846B3B] font-bold text-[25px] ">
+                      {props.isBet ? "HEADS" : "TAILS"} FOR {props.amount} SOL
+                    </h1>
+                  </div>
                   <Image
-                    src="/ventflip/loading.gif"
+                    src="/ventflip/loading1.gif"
                     alt="loading"
-                    height={200}
-                    width={200}
+                    height={70}
+                    width={70}
                     priority
                     unoptimized
+                    className="mt-5"
                   />
                 </div>
               )}

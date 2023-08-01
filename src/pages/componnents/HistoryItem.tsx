@@ -42,17 +42,17 @@ export default function HistoryItem(props: HistoryItemProps) {
           win ? "bg-[#3E4347]" : "bg-[#5E5E5F]"
         }`}
       >
-        <div className="flex-1  text-sm font-semibold text-white">
+        <div className="flex-1  text-sm font-mono text-white">
           {win ? `+${betAmount * 2}` : `-${betAmount}`} SOL
         </div>
-        <div className="flex-1  text-sm font-semibold text-white">
+        <div className="flex-1  text-sm font-mono text-white">
           {type ? "HEADS" : "TAILS"}
         </div>
-        <div className="flex-1  text-sm font-semibold text-white">
+        <div className="flex-1  text-sm font-mono text-white">
           {win ? "WIN" : "LOST"}
         </div>
         {!timeLoading && blockTime !== null && (
-          <div className="flex-1 text-xs uppercase  font-bold text-white">
+          <div className="flex-1 text-xs uppercase  font-mono text-white">
             {moment(betTime * 1000).from(moment(blockTime))}
           </div>
         )}
