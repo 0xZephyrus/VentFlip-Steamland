@@ -14,13 +14,13 @@ const CustomBackground: React.FC<CustomBackgroundProps> = ({
   const backgroundOptions = [
     { label: "Flying City", image: "/background/FlayingCity.png" },
     { label: "Chapter 1", image: "/background/Chapter1.jpeg" },
-    { label: "Chapter 2", image: "/background/Chapter2.jpg" },
-    { label: "Chapter 3", image: "/background/Chapter3.png" },
+    { label: "Chapter 2", image: "/background/Chapter2.jpeg" },
+    { label: "Chapter 3", image: "/background/Chapter3.jpeg" },
     { label: "Chapter 4", image: "/background/Chapter4.jpeg" },
-    { label: "Chapter 5", image: "/background/Chapter5.jpg" },
-    { label: "Gen 1", image: "/background/Gen1.png" },
-    { label: "Gen 2", image: "/background/Gen2.jpg" },
-    { label: "Dust", image: "/background/Dust.jpeg" },
+    { label: "Chapter 5", image: "/background/Chapter5.png" },
+    { label: "Gen 1", image: "/background/Gen2.jpg" },
+    { label: "Gen 2", image: "/background/Gen1.jpg" },
+    { label: "Dust", image: "/background/Dust.png" },
   ];
 
   const handleButtonClick = (image: string) => {
